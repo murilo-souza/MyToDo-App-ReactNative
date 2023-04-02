@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const Header = styled.View`
   background-color: ${(props) => props.theme.colors.zinc800};
   width: 100%;
-  height: ${RFValue(150)}px;
+  height: ${RFValue(120)}px;
 
   align-items: center;
 
@@ -18,8 +18,23 @@ export const Header = styled.View`
 
   flex-direction: row;
 
-  padding-top: ${getStatusBarHeight()}px;
-  padding: 20px;
+  padding: ${getStatusBarHeight()}px 20px 0 20px;
 `
 
-export const LogoContainer = styled.View``
+export const LogoContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`
+
+export const Title = styled.Text`
+  font-family: ${(props) => props.theme.fonts.regular};
+  font-size: ${RFValue(20)}px;
+
+  color: ${(props) => props.theme.colors.white};
+
+  margin-left: 10px;
+`
+
+export const TitleHighlight = styled.Text`
+  color: ${(props) => props.theme.colors.indigo400};
+`
