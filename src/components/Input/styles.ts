@@ -22,4 +22,6 @@ export const InputText = styled.TextInput`
   background-color: ${theme.colors.white};
 
   border-radius: 5px;
+
+  padding: 10px;
 `
