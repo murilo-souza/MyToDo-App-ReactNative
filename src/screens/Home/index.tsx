@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  AddNewTaskContainer,
   Container,
   Header,
   LogoContainer,
@@ -11,6 +12,7 @@ import { SignOut } from 'phosphor-react-native'
 import { useTheme } from 'styled-components/native'
 import { NewTaskCard } from '../../components/NewTaskCard'
 import { FlatList } from 'react-native'
+import { NewTaskButton } from '../../components/NewTaskButton'
 
 const data = [
   {
@@ -18,6 +20,7 @@ const data = [
     title: 'Mandar e-mail prestec',
     description:
       'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
+    principal: 'Pollis',
     isComplete: true,
   },
   {
@@ -25,6 +28,7 @@ const data = [
     title: 'Mandar e-mail prestec',
     description:
       'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
+    principal: 'Pollis',
     isComplete: false,
   },
   {
@@ -32,6 +36,7 @@ const data = [
     title: 'Mandar e-mail prestec',
     description:
       'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
+    principal: 'Pollis',
     isComplete: true,
   },
 ]
@@ -58,10 +63,14 @@ export function Home() {
           <NewTaskCard
             title={item.title}
             description={item.description}
+            principal={item.principal}
             isComplete={item.isComplete}
           />
         )}
       />
+      <AddNewTaskContainer>
+        <NewTaskButton />
+      </AddNewTaskContainer>
     </Container>
   )
 }

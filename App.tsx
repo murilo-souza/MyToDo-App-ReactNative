@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { SignIn } from './src/screens/SignIn'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './src/global/theme'
 import {
@@ -10,7 +9,7 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins'
 import { ActivityIndicator } from 'react-native'
-import { Home } from './src/screens/Home'
+import { NewTask } from './src/screens/NewTask'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,7 +20,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="light" translucent />
-      {fontsLoaded ? <Home /> : <ActivityIndicator />}
+      {fontsLoaded ? <NewTask /> : <ActivityIndicator />}
     </ThemeProvider>
   )
 }

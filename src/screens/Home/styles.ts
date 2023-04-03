@@ -38,3 +38,8 @@ export const Title = styled.Text`
 export const TitleHighlight = styled.Text`
   color: ${(props) => props.theme.colors.indigo400};
 `
+export const AddNewTaskContainer = styled.View`
+  position: absolute;
+  bottom: 13px;
+  right: 22px;
+`

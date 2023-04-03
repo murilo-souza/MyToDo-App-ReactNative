@@ -1,5 +1,13 @@
 import React from 'react'
-import { Container, Description, Header, TextSections, Title } from './styles'
+import {
+  Container,
+  Description,
+  Header,
+  Principal,
+  TextArea,
+  TextSections,
+  Title,
+} from './styles'
 import TaskComplete from '../../assets/task_complete.svg'
 import TaskNoComplete from '../../assets/task_no_complete.svg'
 import { RectButtonProps } from 'react-native-gesture-handler'
@@ -7,17 +15,19 @@ import { RectButtonProps } from 'react-native-gesture-handler'
 type NewTaskCardProps = RectButtonProps & {
   title: string
   description: string
+  principal: string
   isComplete: boolean
 }
 
 export function NewTaskCard({
   title,
   description,
+  principal,
   isComplete,
   ...rest
 }: NewTaskCardProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <TextSections>
         <Header>
           {isComplete ? (
@@ -25,7 +35,10 @@ export function NewTaskCard({
           ) : (
             <TaskNoComplete width={50} height={50} />
           )}
-          <Title>Mandar e-mail prestec</Title>
+          <TextArea>
+            <Title>Mandar e-mail prestec</Title>
+            <Principal>Mandante: {principal}</Principal>
+          </TextArea>
         </Header>
         <Description>
           Mandar e-mail para prestec pedindo orçamento de um novo relógio
