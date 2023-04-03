@@ -3,8 +3,15 @@ import { Container, LogoContainer } from './styles'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import KanbanLogo from '../../assets/kanban.svg'
+import { useNavigation } from '@react-navigation/native'
 
 export function SignIn() {
+  const navigation = useNavigation()
+
+  function handleSignIn() {
+    navigation.navigate('home')
+  }
+
   return (
     <Container>
       <LogoContainer>
@@ -12,7 +19,7 @@ export function SignIn() {
       </LogoContainer>
       <Input title="E-mail" />
       <Input title="Senha" />
-      <Button title="Entrar" />
+      <Button title="Entrar" variant="default" onPress={handleSignIn} />
     </Container>
   )
 }

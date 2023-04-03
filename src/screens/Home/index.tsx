@@ -13,6 +13,7 @@ import { useTheme } from 'styled-components/native'
 import { NewTaskCard } from '../../components/NewTaskCard'
 import { FlatList } from 'react-native'
 import { NewTaskButton } from '../../components/NewTaskButton'
+import { useNavigation } from '@react-navigation/native'
 
 const data = [
   {
@@ -43,6 +44,15 @@ const data = [
 
 export function Home() {
   const theme = useTheme()
+  const navigation = useNavigation()
+
+  function handleGoToNewTask() {
+    navigation.navigate('new')
+  }
+
+  function handleGoToNotes(taskId: string) {
+    navigation.navigate('notes', { taskId })
+  }
 
   return (
     <Container>
@@ -65,11 +75,12 @@ export function Home() {
             description={item.description}
             principal={item.principal}
             isComplete={item.isComplete}
+            onPress={() => handleGoToNotes(item.id)}
           />
         )}
       />
       <AddNewTaskContainer>
-        <NewTaskButton />
+        <NewTaskButton onPress={handleGoToNewTask} />
       </AddNewTaskContainer>
     </Container>
   )

@@ -4,7 +4,7 @@ export declare global {
     interface RootParamList {
       home: undefined
       new: undefined
-      notes: { id: string }
+      notes: { taskId: string }
     }
   }
 }
