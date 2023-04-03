@@ -16,6 +16,7 @@ export function NewTask() {
           title="Descrição da task"
           multiline
           placeholder="Descreva sua task"
+          size="lg"
         />
       </Form>
       <Button title="Salvar" />

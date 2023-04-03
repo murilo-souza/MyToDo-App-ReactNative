@@ -4,13 +4,14 @@ import { TextInputProps } from 'react-native'
 
 type InputProps = TextInputProps & {
   title: string
+  size: 'lg' | 'md'
 }
 
-export function InputBig({ title, ...rest }: InputProps) {
+export function InputBig({ title, size, ...rest }: InputProps) {
   return (
     <Container>
       <Title>{title}</Title>
-      <InputText {...rest} />
+      <InputText {...rest} size={size} />
     </Container>
   )
 }

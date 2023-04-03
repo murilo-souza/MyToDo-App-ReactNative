@@ -9,7 +9,7 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins'
 import { ActivityIndicator } from 'react-native'
-import { NewTask } from './src/screens/NewTask'
+import { Notes } from './src/screens/Notes'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="light" translucent />
-      {fontsLoaded ? <NewTask /> : <ActivityIndicator />}
+      {fontsLoaded ? <Notes /> : <ActivityIndicator />}
     </ThemeProvider>
   )
 }

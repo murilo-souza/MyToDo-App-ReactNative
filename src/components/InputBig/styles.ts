@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { theme } from '../../global/theme'
 import { RFValue } from 'react-native-responsive-fontsize'
 
@@ -16,11 +16,27 @@ export const Title = styled.Text`
   font-size: ${RFValue(15)}px;
 `
 
+interface InputTextProps {
+  size: 'lg' | 'md'
+}
+
 export const InputText = styled.TextInput.attrs({
   textAlignVertical: 'top',
-})`
+})<InputTextProps>`
   width: 100%;
-  height: ${RFValue(200)}px;
+
+  ${({ size }) =>
+    size === 'lg' &&
+    css`
+      height: ${RFValue(200)}px;
+    `}
+
+  ${({ size }) =>
+    size === 'md' &&
+    css`
+      height: ${RFValue(100)}px;
+    `}
+
   background-color: ${theme.colors.white};
 
   border-radius: 5px;
