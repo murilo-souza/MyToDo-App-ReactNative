@@ -4,7 +4,7 @@ import { RFValue } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `
 
 export const Title = styled.Text`
