@@ -54,3 +54,11 @@ export const TextArea = styled.View`
 export const TextSections = styled.View`
   margin-left: 10px;
 `
+export const Time = styled.Text`
+  margin-top: 10px;
+
+  font-family: ${(props) => props.theme.fonts.semiBold};
+  font-size: ${RFValue(14)}px
+
+  color: ${(props) => props.theme.colors.white};
+`

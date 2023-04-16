@@ -1,4 +1,4 @@
-package com.mytodo;
+package Daily.Tasks;
 
 import android.os.Build;
 import android.os.Bundle;

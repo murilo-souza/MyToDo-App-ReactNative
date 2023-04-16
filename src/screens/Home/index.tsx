@@ -15,33 +15,6 @@ import { FlatList } from 'react-native'
 import { NewTaskButton } from '../../components/NewTaskButton'
 import { useNavigation } from '@react-navigation/native'
 
-const data = [
-  {
-    id: '1',
-    title: 'Mandar e-mail prestec',
-    description:
-      'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
-    principal: 'Pollis',
-    isComplete: true,
-  },
-  {
-    id: '2',
-    title: 'Mandar e-mail prestec',
-    description:
-      'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
-    principal: 'Pollis',
-    isComplete: false,
-  },
-  {
-    id: '3',
-    title: 'Mandar e-mail prestec',
-    description:
-      'Mandar e-mail para prestec pedindo orçamento de um novo relógio comparador Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut voluptatem, optio voluptatibus error laboriosam necessitatibus debitis tempore laudantium dolorem aliquam quis voluptas.',
-    principal: 'Pollis',
-    isComplete: true,
-  },
-]
-
 export function Home() {
   const theme = useTheme()
   const navigation = useNavigation()
@@ -66,7 +39,7 @@ export function Home() {
         <SignOut size={25} color={theme.colors.zinc400} />
       </Header>
 
-      <FlatList
+      {/* <FlatList
         data={data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
@@ -75,10 +48,11 @@ export function Home() {
             description={item.description}
             principal={item.principal}
             isComplete={item.isComplete}
+            date={item.date}
             onPress={() => handleGoToNotes(item.id)}
           />
         )}
-      />
+      /> */}
       <AddNewTaskContainer>
         <NewTaskButton onPress={handleGoToNewTask} />
       </AddNewTaskContainer>

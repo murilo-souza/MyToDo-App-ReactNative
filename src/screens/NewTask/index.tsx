@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { InputForm } from '../../components/Forms/InputForm'
 import { InputBigForm } from '../../components/Forms/InputBigForm'
+import firestore from '@react-native-firebase/firestore'
 
 interface FormData {
   title: string
@@ -41,7 +42,8 @@ export function NewTask() {
       title: data.title,
       principal: data.principal,
       description: data.description,
-      created_at: new Date(),
+      isComplete: false,
+      created_at: firestore.FieldValue.serverTimestamp(),
     }
 
     console.log(NewTask)
@@ -58,6 +60,7 @@ export function NewTask() {
           control={control}
           error={errors.title && errors.title.message}
           name={'title'}
+          maxLength={30}
         />
         <InputForm
           title="Mandante"
@@ -65,6 +68,7 @@ export function NewTask() {
           control={control}
           error={errors.principal && errors.principal.message}
           name={'principal'}
+          maxLength={30}
         />
 
         <InputBigForm
