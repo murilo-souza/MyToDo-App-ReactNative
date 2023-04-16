@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Form } from './styles'
 import { Header } from '../../components/Header'
 import { Button } from '../../components/Button'
@@ -8,6 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { InputForm } from '../../components/Forms/InputForm'
 import { InputBigForm } from '../../components/Forms/InputBigForm'
 import firestore from '@react-native-firebase/firestore'
+import { useNavigation } from '@react-navigation/native'
 
 interface FormData {
   title: string
@@ -28,6 +29,9 @@ const schema = yup.object().shape({
 })
 
 export function NewTask() {
+  const navigation = useNavigation()
+  const [loading, setLoading] = useState(false)
+
   const {
     control,
     handleSubmit,
@@ -38,6 +42,8 @@ export function NewTask() {
   })
 
   async function handleNewTask(data: FormData) {
+    setLoading(true)
+
     const NewTask = {
       title: data.title,
       principal: data.principal,
@@ -46,7 +52,10 @@ export function NewTask() {
       created_at: firestore.FieldValue.serverTimestamp(),
     }
 
-    console.log(NewTask)
+    await firestore().collection('tasks').doc().set(NewTask)
+
+    navigation.navigate('home')
+    setLoading(false)
     reset()
   }
 
@@ -60,7 +69,7 @@ export function NewTask() {
           control={control}
           error={errors.title && errors.title.message}
           name={'title'}
-          maxLength={30}
+          maxLength={26}
         />
         <InputForm
           title="Mandante"
@@ -68,7 +77,7 @@ export function NewTask() {
           control={control}
           error={errors.principal && errors.principal.message}
           name={'principal'}
-          maxLength={30}
+          maxLength={20}
         />
 
         <InputBigForm
@@ -82,6 +91,7 @@ export function NewTask() {
         />
       </Form>
       <Button
+        enabled={!loading}
         title="Salvar"
         variant="default"
         onPress={handleSubmit(handleNewTask)}

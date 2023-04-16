@@ -9,8 +9,7 @@ export const Container = styled.View`
 `
 export const NoteContainer = styled.ScrollView`
   background-color: ${(props) => props.theme.colors.zinc800};
-  border: 2px solid ${(props) => props.theme.colors.indigo600}
-
+  border: 2px solid ${(props) => props.theme.colors.indigo600};
 
   border-radius: 5px;
 

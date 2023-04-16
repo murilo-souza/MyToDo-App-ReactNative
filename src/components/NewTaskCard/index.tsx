@@ -20,7 +20,8 @@ type NewTaskCardProps = RectButtonProps & {
   description: string
   principal: string
   isComplete: boolean
-  date: FirebaseFirestoreTypes.Timestamp
+  createdAt: FirebaseFirestoreTypes.Timestamp
+  finishedAt: FirebaseFirestoreTypes.Timestamp
 }
 
 export function NewTaskCard({
@@ -28,7 +29,8 @@ export function NewTaskCard({
   description,
   principal,
   isComplete,
-  date,
+  createdAt,
+  finishedAt,
   ...rest
 }: NewTaskCardProps) {
   return (
@@ -41,22 +43,13 @@ export function NewTaskCard({
             <TaskNoComplete width={50} height={50} />
           )}
           <TextArea>
-            <Title>Mandar e-mail prestec</Title>
+            <Title>{title}</Title>
             <Principal>Mandante: {principal}</Principal>
           </TextArea>
         </Header>
-        <Description>
-          Mandar e-mail para prestec pedindo orçamento de um novo relógio
-          comparador Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Inventore necessitatibus dolor ipsum quisquam eum? Fuga asperiores aut
-          voluptatem, optio voluptatibus error laboriosam necessitatibus debitis
-          tempore laudantium dolorem aliquam quis voluptas.
-        </Description>
-        {isComplete ? (
-          <Time>Data de conclusão: {dateFormat(date)}</Time>
-        ) : (
-          <Time>Data de inicio: {dateFormat(date)}</Time>
-        )}
+        <Description>{description}</Description>
+        <Time>Data de inicio: {dateFormat(createdAt)}</Time>
+        {isComplete && <Time>Data de conclusão: {dateFormat(finishedAt)}</Time>}
       </TextSections>
     </Container>
   )
