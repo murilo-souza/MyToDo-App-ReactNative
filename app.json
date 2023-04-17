@@ -1,8 +1,16 @@
 {
   "expo": {
-    "name": "my-todo",
+    "name": "My Daily Tasks",
     "slug": "my-todo",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#18181B"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -10,12 +18,24 @@
       "@react-native-firebase/app"
     ],
     "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#18181B"
+      },
       "package": "Daily.Tasks",
       "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "ios": {
       "bundleIdentifier": "Daily.Task",
       "googleServicesFile": "./GoogleService-Info.plist"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2839bef8-6cbf-45c5-9d8f-0aeea26f82a7"
+      }
     }
   }
 }

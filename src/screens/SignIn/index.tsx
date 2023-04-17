@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Container, LogoContainer } from './styles'
+import { ButtonTitle, Container, LogoContainer, SignInButton } from './styles'
 import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
+
 import KanbanLogo from '../../assets/kanban.svg'
 import { Alert } from 'react-native'
 import auth from '@react-native-firebase/auth'
@@ -58,12 +58,10 @@ export function SignIn() {
         secureTextEntry
         autoCapitalize="none"
       />
-      <Button
-        title="Entrar"
-        variant="default"
-        onPress={handleHome}
-        isLoading={isLoading}
-      />
+
+      <SignInButton onPress={handleHome} disabled={isLoading}>
+        <ButtonTitle>Entrar</ButtonTitle>
+      </SignInButton>
     </Container>
   )
 }

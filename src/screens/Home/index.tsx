@@ -12,12 +12,14 @@ import LogoSVG from '../../assets/kanban.svg'
 import { SignOut } from 'phosphor-react-native'
 import { useTheme } from 'styled-components/native'
 import { NewTaskCard } from '../../components/NewTaskCard'
-import { FlatList } from 'react-native'
+import { FlatList, Alert } from 'react-native'
 import { NewTaskButton } from '../../components/NewTaskButton'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import firestore, {
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import auth from '@react-native-firebase/auth'
 
 type TaskCardProps = {
   id: string
@@ -40,6 +42,17 @@ export function Home() {
 
   function handleGoToNotes(taskId: string, isComplete: boolean) {
     navigation.navigate('notes', { taskId, isComplete })
+  }
+
+  function handleSignOut() {
+    Alert.alert('Sair da conta', 'Tem certeza que deseja sair da sua conta?', [
+      {
+        text: 'Manter',
+        onPress: () => {},
+        style: 'cancel',
+      },
+      { text: 'Sair', onPress: () => auth().signOut() },
+    ])
   }
 
   useFocusEffect(
@@ -82,7 +95,9 @@ export function Home() {
             My Daily <TitleHighlight>Tasks</TitleHighlight>
           </Title>
         </LogoContainer>
-        <SignOut size={25} color={theme.colors.zinc400} />
+        <BorderlessButton onPress={handleSignOut}>
+          <SignOut size={25} color={theme.colors.zinc400} />
+        </BorderlessButton>
       </Header>
 
       <FlatList

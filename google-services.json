@@ -29,6 +29,13 @@
             {
               "client_id": "407166848911-sipimpa3bmvt4ien6h3dlfso3j1pooj8.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "407166848911-d0pgnabn095hu4ld0saec9ae8d4a0vb1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Daily.Task"
+              }
             }
           ]
         }

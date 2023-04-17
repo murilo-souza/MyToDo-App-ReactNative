@@ -91,6 +91,7 @@ export function NewTask() {
         />
       </Form>
       <Button
+        isLoading={loading}
         enabled={!loading}
         title="Salvar"
         variant="default"
