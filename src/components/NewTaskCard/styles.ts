@@ -1,8 +1,12 @@
 import { RectButton } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 
-export const Container = styled(RectButton)`
+interface onCompleteProps {
+  isComplete: boolean
+}
+
+export const Container = styled(RectButton)<onCompleteProps>`
   margin: 20px;
 
   background-color: ${(props) => props.theme.colors.zinc800};
@@ -14,6 +18,12 @@ export const Container = styled(RectButton)`
   align-items: center;
 
   border-radius: 5px;
+
+  ${({ isComplete }) =>
+    isComplete &&
+    css`
+      opacity: 0.6;
+    `}
 `
 
 export const Header = styled.View`
@@ -40,11 +50,9 @@ export const Description = styled.Text`
 
 export const Principal = styled.Text`
   font-family: ${(props) => props.theme.fonts.regular};
-  font-size: ${RFValue(14)}px
+  font-size: ${RFValue(14)}px;
 
   color: ${(props) => props.theme.colors.white};
-
-
 `
 
 export const TextArea = styled.View`
@@ -58,7 +66,7 @@ export const Time = styled.Text`
   margin-top: 10px;
 
   font-family: ${(props) => props.theme.fonts.semiBold};
-  font-size: ${RFValue(14)}px
+  font-size: ${RFValue(14)}px;
 
   color: ${(props) => props.theme.colors.white};
 `

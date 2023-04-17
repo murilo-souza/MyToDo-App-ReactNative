@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import styled, { css } from 'styled-components/native'
 
 interface ButtonProps {
-  variant: 'default' | 'complete'
+  variant: 'default' | 'complete' | 'delete'
 }
 
 export const Container = styled(RectButton)<ButtonProps>`
@@ -20,6 +20,12 @@ export const Container = styled(RectButton)<ButtonProps>`
     variant === 'complete' &&
     css`
       background-color: ${(props) => props.theme.colors.white};
+    `}
+
+  ${({ variant }) =>
+    variant === 'delete' &&
+    css`
+      background-color: ${(props) => props.theme.colors.red600};
     `}
 
   align-items: center;
@@ -41,5 +47,11 @@ export const Title = styled.Text<ButtonProps>`
     variant === 'complete' &&
     css`
       color: ${(props) => props.theme.colors.zinc800};
+    `};
+
+  ${({ variant }) =>
+    variant === 'delete' &&
+    css`
+      color: ${(props) => props.theme.colors.white};
     `};
 `

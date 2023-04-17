@@ -38,8 +38,8 @@ export function Home() {
     navigation.navigate('new')
   }
 
-  function handleGoToNotes(taskId: string) {
-    navigation.navigate('notes', { taskId })
+  function handleGoToNotes(taskId: string, isComplete: boolean) {
+    navigation.navigate('notes', { taskId, isComplete })
   }
 
   useFocusEffect(
@@ -96,7 +96,7 @@ export function Home() {
             isComplete={item.isComplete}
             createdAt={item.created_at}
             finishedAt={item.finished_at}
-            onPress={() => handleGoToNotes(item.id)}
+            onPress={() => handleGoToNotes(item.id, item.isComplete)}
           />
         )}
       />

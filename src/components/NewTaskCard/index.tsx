@@ -34,7 +34,7 @@ export function NewTaskCard({
   ...rest
 }: NewTaskCardProps) {
   return (
-    <Container {...rest}>
+    <Container {...rest} isComplete={isComplete}>
       <TextSections>
         <Header>
           {isComplete ? (
